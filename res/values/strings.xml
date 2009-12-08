@@ -6,4 +6,6 @@
 <string name="continue_game_label">Continue</string>
 <string name="about_label">About</string>
 <string name="exit_label">Exit</string>
+<string name="about_text">ScoreKeeper is a simple app that allows you to keep score of multiple types of sporting events by touching buttons on the screen.</string>
+<string name="about_title">About ScoreKeeper</string>
 </resources>
