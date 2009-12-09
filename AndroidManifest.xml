@@ -12,8 +12,10 @@
             </intent-filter>
         </activity>
 
-    <activity android:name="About" android:label="@string/about_title"></activity>
-</application>
+    <activity 
+      android:name="About" 
+      android:label="@string/about_title" 
+      android:theme="@android:style/Theme.Dialog" />
     <uses-sdk android:minSdkVersion="5" />
-
+  </application>
 </manifest> 

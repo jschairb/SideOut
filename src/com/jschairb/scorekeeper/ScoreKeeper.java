@@ -20,8 +20,8 @@ public class ScoreKeeper extends Activity implements OnClickListener {
         // newButton.setOnClickListener(this);
         View aboutButton = findViewById(R.id.about_button); 
         aboutButton.setOnClickListener(this);
-        // View exitButton = findViewById(R.id.exit_button); 
-        // exitButton.setOnClickListener(this);
+        View exitButton = findViewById(R.id.exit_button); 
+        exitButton.setOnClickListener(this);
     }
     
     public void onClick(View v) {
@@ -29,6 +29,9 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     	case R.id.about_button:
     		Intent i = new Intent(this, About.class);
     		startActivity(i);
+    		break;
+    	case R.id.exit_button:
+    		finish();
     		break;
     	}
     }
