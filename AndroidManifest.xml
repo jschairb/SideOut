@@ -18,4 +18,6 @@
       android:theme="@android:style/Theme.Dialog" />
     <uses-sdk android:minSdkVersion="5" />
   </application>
+
+<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
 </manifest> 
