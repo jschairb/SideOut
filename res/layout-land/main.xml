@@ -30,12 +30,18 @@
       >
       <TableRow>
         <Button
-          android:id="@+id/new_game_button"
-          android:text="@string/new_game_label"
+          android:id="@+id/score_us_button"
+          android:text="@string/score_us_label"
           />
         <Button
-          android:id="@+id/continue_game_button"
-          android:text="@string/continue_game_label"
+          android:id="@+id/score_them_button"
+          android:text="@string/score_them_label"
+          />
+      </TableRow>
+      <TableRow>
+        <Button
+          android:id="@+id/reset_button"
+          android:text="@string/reset_label"
           />
       </TableRow>
     </TableLayout>
