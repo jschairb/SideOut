@@ -9,18 +9,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 
 public class ScoreKeeper extends Activity implements OnClickListener {
 	private static final String TAG = "ScoreKeeper";
 	
 	private static final String PREF_US = "us";
-	private int US_SCORE = 0;
+	private int usScore = 0;
 	
 	private static final String PREF_THEM = "them";
-	private int THEM_SCORE = 0;
+	private int themScore = 0;
 	
 	private static final String PREF_RESUME = "resume";
 	private int RESUME = 0;
+	
+	private TextView usScoreDisplay;
+	private TextView themScoreDisplay;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,6 +64,7 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     		theyScore();
     		break;
     	}
+    	updateScoreDisplays();
     }
     
     @Override
@@ -81,8 +86,8 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     	super.onPause();
     	Log.d(TAG, "onPause");
     	
-    	getPreferences(MODE_PRIVATE).edit().putInt(PREF_US, US_SCORE).commit();
-    	getPreferences(MODE_PRIVATE).edit().putInt(PREF_THEM, THEM_SCORE).commit();
+    	getPreferences(MODE_PRIVATE).edit().putInt(PREF_US, usScore).commit();
+    	getPreferences(MODE_PRIVATE).edit().putInt(PREF_THEM, themScore).commit();
     	
     	getPreferences(MODE_PRIVATE).edit().putInt(PREF_RESUME, RESUME).commit();
     	Log.d(TAG, "resume: " + RESUME);
@@ -99,36 +104,45 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     	
     	switch(RESUME) {
     	case 1:
-    		US_SCORE = getPreferences(MODE_PRIVATE).getInt(PREF_US, US_SCORE);
-    		THEM_SCORE = getPreferences(MODE_PRIVATE).getInt(PREF_THEM, THEM_SCORE);
+    		usScore = getPreferences(MODE_PRIVATE).getInt(PREF_US, usScore);
+    		themScore = getPreferences(MODE_PRIVATE).getInt(PREF_THEM, themScore);
+    		updateScoreDisplays();
     		break;
     	case 0:
     		startGame();
     		break;
     	}
 		
-		Log.d(TAG, "onResume() US: " + US_SCORE);
-		Log.d(TAG, "onResume() THEM: " + THEM_SCORE);
+		Log.d(TAG, "onResume() US: " + usScore);
+		Log.d(TAG, "onResume() THEM: " + themScore);
     }
     
     private void startGame() {
     	Log.d(TAG, "startGame");
-    	US_SCORE = 0;
-    	THEM_SCORE = 0;
+    	usScore = 0;
+    	themScore = 0;
     	RESUME = 0;
+    }
+    
+    private void updateScoreDisplays() {
+    	usScoreDisplay = (TextView) findViewById(R.id.us_score_label);
+    	usScoreDisplay.setText( new StringBuilder().append(usScore));
+    	
+    	themScoreDisplay = (TextView) findViewById(R.id.them_score_label);
+    	themScoreDisplay.setText( new StringBuilder().append(themScore));
     }
  
     private void theyScore() {
-		THEM_SCORE = score(THEM_SCORE);
-		Log.d(TAG, "theyScore() THEM_SCORE: " + THEM_SCORE);
+		themScore = increment_score(themScore);
+		Log.d(TAG, "theyScore() themScore: " + themScore);
     }
     
     private void weScore() {
-    	US_SCORE = score(US_SCORE);
-    	Log.d(TAG, "weScore() US_SCORE: " + US_SCORE);
+    	usScore = increment_score(usScore);
+    	Log.d(TAG, "weScore() usScore: " + usScore);
     }
     
-    private int score(int s) {
+    private int increment_score(int s) {
     	RESUME = 1;
     	s++;
     	return s;
