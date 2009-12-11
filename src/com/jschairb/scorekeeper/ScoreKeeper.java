@@ -22,20 +22,19 @@ public class ScoreKeeper extends Activity implements OnClickListener {
 	private static final String PREF_RESUME = "resume";
 	private int RESUME = 0;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
         setContentView(R.layout.main);
         
-        //Set up click listeners for all the buttons
         View scoreUsButton = findViewById(R.id.score_us_button); 
         scoreUsButton.setOnClickListener(this); 
         View scoreThemButton = findViewById(R.id.score_them_button); 
         scoreThemButton.setOnClickListener(this);
         View resetButton = findViewById(R.id.reset_button); 
         resetButton.setOnClickListener(this);
+        
     }
     
     @Override
@@ -132,7 +131,6 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     private int score(int s) {
     	RESUME = 1;
     	s++;
-    	Log.d(TAG, "score: resume: " + RESUME);
     	return s;
     }
 }
