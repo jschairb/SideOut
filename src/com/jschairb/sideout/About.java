@@ -1,12 +1,12 @@
-package com.jschairb.scorekeeper;
+package com.jschairb.sideout;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class Keypad extends Activity {
+public class About extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.keypad);
+		setContentView(R.layout.about);
 	}
 }

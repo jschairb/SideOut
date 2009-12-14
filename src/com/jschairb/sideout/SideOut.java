@@ -1,4 +1,4 @@
-package com.jschairb.scorekeeper;
+package com.jschairb.sideout;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
-public class ScoreKeeper extends Activity implements OnClickListener, OnLongClickListener {
+public class SideOut extends Activity implements OnClickListener, OnLongClickListener {
 //	private static final String TAG = "ScoreKeeper";
 	
 	private static final String PREF_US = "us";
