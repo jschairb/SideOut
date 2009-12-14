@@ -18,35 +18,57 @@
       android:layout_gravity="center"
       android:layout_marginBottom="25dip" 
       android:text="@string/main_title" 
+      android:textColor="@color/title_color"
       android:textSize="24.5sp"
       />
-    <TextView 
-      android:text="" 
-      android:layout_width="wrap_content" 
-      android:layout_height="wrap_content" 
-      android:id="@+id/them_score_label"/>
-    <TextView 
-      android:text="" 
-      android:layout_width="wrap_content" 
-      android:layout_height="wrap_content" 
-      android:id="@+id/us_score_label" />
-    <Button
-      android:id="@+id/score_us_button"
-      android:layout_width="fill_parent"
+    <TableLayout
       android:layout_height="wrap_content"
-      android:text="@string/score_us_label"
-      />
-    <Button
-      android:id="@+id/score_them_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/score_them_label"
-      />
-    <Button
-      android:id="@+id/reset_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/reset_label"
-      />
+      android:layout_width="wrap_content"
+      android:layout_gravity="center"
+      android:stretchColumns="*"
+      >
+        <TableRow>
+          <TextView 
+            android:text="" 
+            android:id="@+id/us_score_label"
+            android:typeface="monospace"
+            android:textSize="48sp" 
+            android:gravity="center"
+            android:textColor="@color/us_score_color"
+            android:padding="10sp"
+            android:background="@color/score_color"
+            android:layout_marginBottom="10dip"
+            android:layout_marginRight="2dip"
+            />
+          <TextView 
+            android:text="" 
+	          android:id="@+id/them_score_label" 
+	          android:typeface="monospace"
+	          android:textSize="48sp"
+	          android:gravity="center"
+	          android:textColor="@color/them_score_color"
+	          android:padding="10sp"
+	          android:background="@color/score_color"
+	          android:layout_marginBottom="10dip"
+	          android:layout_marginLeft="2dip"
+	          />
+        </TableRow>
+        <TableRow>
+          <Button
+            android:id="@+id/score_us_button"
+            android:text="@string/score_us_label"
+            android:textStyle="bold"
+            android:textSize="24sp"
+            android:textColor="@color/us_score_color"
+            />
+         <Button
+           android:id="@+id/score_them_button"
+           android:text="@string/score_them_label"
+           android:textStyle="bold"
+           android:textSize="24sp"
+           android:textColor="@color/them_score_color"
+         />
+        </TableRow>
+      </TableLayout>
   </LinearLayout>
 </LinearLayout>

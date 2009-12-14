@@ -2,5 +2,6 @@
 <menu
   xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:title="@string/about_label" android:alphabeticShortcut="@string/about_shortcut" android:id="@+id/about_menu"></item>
+<item android:title="@string/reset_label" android:alphabeticShortcut="@string/reset_shortcut" android:id="@+id/reset_menu"></item>
 <item android:alphabeticShortcut="@string/exit_shortcut" android:id="@+id/exit_menu" android:title="@string/exit_label"></item>
 </menu>

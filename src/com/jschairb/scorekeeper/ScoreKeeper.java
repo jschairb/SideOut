@@ -3,7 +3,7 @@ package com.jschairb.scorekeeper;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
-import android.util.Log;
+//import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,7 +12,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 public class ScoreKeeper extends Activity implements OnClickListener {
-	private static final String TAG = "ScoreKeeper";
+//	private static final String TAG = "ScoreKeeper";
 	
 	private static final String PREF_US = "us";
 	private int usScore = 0;
@@ -23,21 +23,26 @@ public class ScoreKeeper extends Activity implements OnClickListener {
 	private static final String PREF_RESUME = "resume";
 	private int RESUME = 0;
 	
-	private TextView usScoreDisplay;
-	private TextView themScoreDisplay;
+	private TextView displayScoreUs;
+	private TextView displayScoreThem;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate");
         setContentView(R.layout.main);
         
         View scoreUsButton = findViewById(R.id.score_us_button); 
         scoreUsButton.setOnClickListener(this); 
         View scoreThemButton = findViewById(R.id.score_them_button); 
         scoreThemButton.setOnClickListener(this);
-        View resetButton = findViewById(R.id.reset_button); 
-        resetButton.setOnClickListener(this);
+        
+        displayScoreUs = (TextView) findViewById(R.id.us_score_label);
+        displayScoreUs.setOnClickListener(this);
+        
+        displayScoreThem = (TextView) findViewById(R.id.them_score_label);
+        displayScoreThem.setOnClickListener(this);
+        
+        updateScoreDisplays();
         
     }
     
@@ -51,17 +56,19 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     
     public void onClick(View v) {
     	switch (v.getId()) {
-    	case R.id.reset_button:
-    		Log.d(TAG, "onClick reset_button");
-    		startGame();
-    		break;
     	case R.id.score_us_button:
-    		Log.d(TAG, "onClick score_us_button");
     		weScore();
     		break;
     	case R.id.score_them_button:
-    		Log.d(TAG, "onClick score_them_button");
     		theyScore();
+    		break;
+    	case R.id.us_score_label:
+    		Intent fix_us = new Intent(this, Keypad.class);
+    		startActivity(fix_us);
+    		break;
+    	case R.id.them_score_label:
+    		Intent fix_them = new Intent(this, Keypad.class);
+    		startActivity(fix_them);
     		break;
     	}
     	updateScoreDisplays();
@@ -74,6 +81,10 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     		Intent i = new Intent(this, About.class);
     		startActivity(i);
     		return true;
+    	case R.id.reset_menu:
+    		startGame();
+    		updateScoreDisplays();
+    		return true;
     	case R.id.exit_menu:
     		finish();
     		return true;
@@ -84,62 +95,51 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     @Override
     protected void onPause() {
     	super.onPause();
-    	Log.d(TAG, "onPause");
     	
     	getPreferences(MODE_PRIVATE).edit().putInt(PREF_US, usScore).commit();
     	getPreferences(MODE_PRIVATE).edit().putInt(PREF_THEM, themScore).commit();
-    	
     	getPreferences(MODE_PRIVATE).edit().putInt(PREF_RESUME, RESUME).commit();
-    	Log.d(TAG, "resume: " + RESUME);
     }
     
     @Override
     protected void onResume() {
     	super.onResume();
-    	Log.d(TAG, "onResume");
     	
     	RESUME = getPreferences(MODE_PRIVATE).getInt(PREF_RESUME, RESUME);
-    	
-    	Log.d(TAG, "onResume() resume: " + RESUME);
     	
     	switch(RESUME) {
     	case 1:
     		usScore = getPreferences(MODE_PRIVATE).getInt(PREF_US, usScore);
     		themScore = getPreferences(MODE_PRIVATE).getInt(PREF_THEM, themScore);
-    		updateScoreDisplays();
     		break;
     	case 0:
     		startGame();
     		break;
     	}
 		
-		Log.d(TAG, "onResume() US: " + usScore);
-		Log.d(TAG, "onResume() THEM: " + themScore);
+		updateScoreDisplays();
     }
     
     private void startGame() {
-    	Log.d(TAG, "startGame");
     	usScore = 0;
     	themScore = 0;
     	RESUME = 0;
     }
     
     private void updateScoreDisplays() {
-    	usScoreDisplay = (TextView) findViewById(R.id.us_score_label);
-    	usScoreDisplay.setText( new StringBuilder().append(usScore));
+    	displayScoreUs = (TextView) findViewById(R.id.us_score_label);
+    	displayScoreUs.setText( new StringBuilder().append(usScore));
     	
-    	themScoreDisplay = (TextView) findViewById(R.id.them_score_label);
-    	themScoreDisplay.setText( new StringBuilder().append(themScore));
+    	displayScoreThem = (TextView) findViewById(R.id.them_score_label);
+    	displayScoreThem.setText( new StringBuilder().append(themScore));
     }
  
     private void theyScore() {
 		themScore = increment_score(themScore);
-		Log.d(TAG, "theyScore() themScore: " + themScore);
     }
     
     private void weScore() {
     	usScore = increment_score(usScore);
-    	Log.d(TAG, "weScore() usScore: " + usScore);
     }
     
     private int increment_score(int s) {

@@ -16,6 +16,12 @@
       android:name="About" 
       android:label="@string/about_title" 
       android:theme="@android:style/Theme.Dialog" />
+      
+    <activity 
+      android:name="Keypad" 
+      android:label="@string/keypad_title" 
+      android:theme="@android:style/Theme.Dialog" />
+      
     <uses-sdk android:minSdkVersion="5" />
   </application>
 
