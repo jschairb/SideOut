@@ -9,9 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
-public class ScoreKeeper extends Activity implements OnClickListener {
+public class ScoreKeeper extends Activity implements OnClickListener, OnLongClickListener {
 //	private static final String TAG = "ScoreKeeper";
 	
 	private static final String PREF_US = "us";
@@ -37,10 +38,10 @@ public class ScoreKeeper extends Activity implements OnClickListener {
         scoreThemButton.setOnClickListener(this);
         
         displayScoreUs = (TextView) findViewById(R.id.us_score_label);
-        displayScoreUs.setOnClickListener(this);
+        displayScoreUs.setOnLongClickListener(this);
         
         displayScoreThem = (TextView) findViewById(R.id.them_score_label);
-        displayScoreThem.setOnClickListener(this);
+        displayScoreThem.setOnLongClickListener(this);
         
         updateScoreDisplays();
         
@@ -62,17 +63,23 @@ public class ScoreKeeper extends Activity implements OnClickListener {
     	case R.id.score_them_button:
     		theyScore();
     		break;
-    	case R.id.us_score_label:
-    		Intent fix_us = new Intent(this, Keypad.class);
-    		startActivity(fix_us);
-    		break;
-    	case R.id.them_score_label:
-    		Intent fix_them = new Intent(this, Keypad.class);
-    		startActivity(fix_them);
-    		break;
     	}
     	updateScoreDisplays();
     }
+    
+	public boolean onLongClick(View v) {
+		switch (v.getId()) {
+    	case R.id.us_score_label:
+    		Intent fix_us = new Intent(this, Keypad.class);
+    		startActivity(fix_us);
+    		return true;
+    	case R.id.them_score_label:
+    		Intent fix_them = new Intent(this, Keypad.class);
+    		startActivity(fix_them);
+    		return true;
+    	}
+		return false;
+	}
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
