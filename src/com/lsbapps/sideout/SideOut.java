@@ -1,4 +1,4 @@
-package com.jschairb.sideout;
+package com.lsbapps.sideout;
 
 import android.app.Activity;
 import android.os.Bundle;
