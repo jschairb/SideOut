@@ -3,7 +3,7 @@ package com.lsbapps.sideout;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
-//import android.util.Log;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -13,7 +13,7 @@ import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
 public class SideOut extends Activity implements OnClickListener, OnLongClickListener {
-//	private static final String TAG = "ScoreKeeper";
+	private static final String TAG = "ScoreKeeper";
 	
 	private static final String PREF_US = "us";
 	private int usScore = 0;
@@ -142,16 +142,16 @@ public class SideOut extends Activity implements OnClickListener, OnLongClickLis
     }
  
     private void theyScore() {
-		themScore = increment_score(themScore);
+    	themScore++;
+    	setResume();
     }
     
     private void weScore() {
-    	usScore = increment_score(usScore);
+    	usScore++;
+    	setResume();
     }
     
-    private int increment_score(int s) {
+    private void setResume() {
     	RESUME = 1;
-    	s++;
-    	return s;
     }
 }
