@@ -7,10 +7,10 @@
   <string name="app_name">SideOut</string>  
   <string name="exit_label">Exit</string>
   <string name="exit_shortcut">x</string>
-  <string name="keypad_title">Set The Score Manually</string>
   <string name="main_title">SideOut</string>
   <string name="reset_label">Reset Game</string>
   <string name="reset_shortcut">r</string>
   <string name="score_us_label">Us</string>
   <string name="score_them_label">Them</string>
+  <string name="set_score_title">Set The Score Manually</string>
 </resources>
