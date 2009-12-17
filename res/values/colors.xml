@@ -1,7 +1,7 @@
 <resources>
-  <color name="background">#F5F5F5</color>
-  <color name="title_color">#B22222</color>
-  <color name="us_score_color">#4B0082</color>
-  <color name="them_score_color">#006400</color>
+  <color name="background">#000000</color>
+  <color name="title_color">#FFFFFF</color>
+  <color name="us_score_color">#191970</color>
+  <color name="them_score_color">#8B0000</color>
   <color name="score_color">#CCCCCC</color>
 </resources>

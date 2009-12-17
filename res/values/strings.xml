@@ -2,7 +2,7 @@
 <resources>
   <string name="about_label">About</string>
   <string name="about_shortcut">a</string>
-  <string name="about_text">SideOut is a simple app that allows you to keep score of multiple types of sporting events by touching buttons on the screen.</string>
+  <string name="about_text">SideOut allows you to keep track of volleyball scores so you won\'t need to keep scratch paper around.</string>
   <string name="about_title">About SideOut</string>
   <string name="app_name">SideOut</string>  
   <string name="exit_label">Exit</string>
@@ -12,5 +12,4 @@
   <string name="reset_shortcut">r</string>
   <string name="score_us_label">Us</string>
   <string name="score_them_label">Them</string>
-  <string name="set_score_title">Set The Score Manually</string>
 </resources>

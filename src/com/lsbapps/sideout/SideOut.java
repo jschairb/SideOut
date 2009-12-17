@@ -37,7 +37,7 @@ public class SideOut extends Activity implements OnClickListener {
         View scoreThemButton = findViewById(R.id.score_them_button); 
         scoreThemButton.setOnClickListener(this);
         
-        startGame();
+        getPreferences();
         updateScoreDisplays();
     }
     
