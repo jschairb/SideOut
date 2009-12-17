@@ -17,10 +17,6 @@
       android:label="@string/about_title" 
       android:theme="@android:style/Theme.Dialog" />
       
-    <activity 
-      android:name="SetScore" 
-      android:label="@string/set_score_title"  />
-      
     <uses-sdk android:minSdkVersion="5" />
   </application>
 

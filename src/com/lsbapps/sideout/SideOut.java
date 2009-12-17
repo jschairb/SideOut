@@ -9,10 +9,9 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.widget.TextView;
 
-public class SideOut extends Activity implements OnClickListener, OnLongClickListener {
+public class SideOut extends Activity implements OnClickListener {
 	private static final String TAG = "SideOut";
 	
 	private static final String PREF_US = "us";
@@ -38,12 +37,6 @@ public class SideOut extends Activity implements OnClickListener, OnLongClickLis
         View scoreThemButton = findViewById(R.id.score_them_button); 
         scoreThemButton.setOnClickListener(this);
         
-        displayScoreUs = (TextView) findViewById(R.id.us_score_label);
-        displayScoreUs.setOnLongClickListener(this);
-        
-        displayScoreThem = (TextView) findViewById(R.id.them_score_label);
-        displayScoreThem.setOnLongClickListener(this);
-        
         startGame();
         updateScoreDisplays();
     }
@@ -68,14 +61,6 @@ public class SideOut extends Activity implements OnClickListener, OnLongClickLis
     	}
     	updateScoreDisplays();
     }
-    
-	public boolean onLongClick(View v) {
-	  Log.d(TAG, "SideOut:onLongClick()");
-	  Intent setScore = new Intent(this, SetScore.class);
-	  startActivity(setScore);
-	  Log.d(TAG, "onLongClick");
-	  return true;
-	}
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
