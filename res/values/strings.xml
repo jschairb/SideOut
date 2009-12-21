@@ -2,7 +2,7 @@
 <resources>
   <string name="about_label">About</string>
   <string name="about_shortcut">a</string>
-  <string name="about_text">SideOut allows you to keep track of volleyball scores so you won\'t need to keep scratch paper around.</string>
+  <string name="about_text">SideOut is a simple scorekeeping application for volleyball sets. \nSideOut Pro coming soon.</string>
   <string name="about_title">About SideOut</string>
   <string name="app_name">SideOut</string>  
   <string name="exit_label">Exit</string>

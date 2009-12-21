@@ -3,7 +3,7 @@
   android:background="@color/background"
   android:layout_width="fill_parent"
   android:layout_height="fill_parent"
-  android:padding="30dip"
+  android:padding="20dip"
   android:orientation="horizontal"
   >
   <LinearLayout
@@ -16,7 +16,7 @@
       android:layout_width="wrap_content" 
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:layout_marginBottom="25dip" 
+      android:layout_marginBottom="20dip" 
       android:text="@string/main_title" 
       android:textColor="@color/title_color"
       android:textSize="48sp"
