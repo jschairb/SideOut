@@ -12,4 +12,6 @@
   <string name="reset_shortcut">r</string>
   <string name="score_us_label">Us</string>
   <string name="score_them_label">Them</string>
+  <string name="send_label">Send Score</string>
+  <string name="send_shortcut">s</string>
 </resources>

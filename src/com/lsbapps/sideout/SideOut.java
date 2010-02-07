@@ -62,6 +62,9 @@ public class SideOut extends Activity implements OnClickListener {
     	updateScoreDisplays();
     }
     
+    //preferencechangelistener
+    // maybe on resume
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
@@ -72,6 +75,13 @@ public class SideOut extends Activity implements OnClickListener {
     	case R.id.reset_menu:
     		startGame();
     		updateScoreDisplays();
+    		return true;
+    	case R.id.send_menu:
+    		Intent msg = new Intent(Intent.ACTION_SEND);
+    		msg.setType("text/plain");
+    		msg.putExtra(Intent.EXTRA_SUBJECT, "SideOut Score Update");
+    		msg.putExtra(Intent.EXTRA_TEXT, ("Us: " + usScore + " - " + "Them: " + themScore));
+    	    startActivity(Intent.createChooser(msg, "Send score update"));
     		return true;
     	case R.id.exit_menu:
     		finish();
